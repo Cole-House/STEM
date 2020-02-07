@@ -1,6 +1,6 @@
  <?php
 $servername = "localhost";
-$username = "User";
+$username = "user";
 $password = "password";
 $dbname = "school";
 
@@ -11,12 +11,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 $fname = 'Bertrum';
 $age = 24;
 $gradeLevel = 12;
+//student info
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO students (name,age,gradeLevel)
-VALUES ('$fname', '$age' , '$gradeLevel')";
+$sql = "INSERT INTO students (name,age,gradeLevel) VALUES ('$fname', '$age' , '$gradeLevel')";
 //creating a sql variable with the string we inputted and the corresponding values
 // InSERT InTO the tableName you made(column1, column2, column3 ) VALUES (value1, value2,value3)
 if ($conn->query($sql) === TRUE) {
