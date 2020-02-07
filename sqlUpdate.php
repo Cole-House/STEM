@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$username = "User";
+$username = "user";
 $password = "password";
 $dbname = "school";
 
@@ -22,4 +22,5 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $conn->close();
+#connection close
 ?> 
