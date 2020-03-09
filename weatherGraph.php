@@ -96,19 +96,20 @@ if (mysqli_num_rows($result7) > 0) {
 }
 # extracting the select query result from each query and pulling the data and neatly placing it within its corresponding sentence
 
-echo "Note*: You may refer to our phpmyadmin page for x-axis values and the database has not had any new inputs since 03/04/20
+echo "Note*: You may refer to our phpmyadmin page for x-axis values and the database has not had any new inputs since 03/04/20;
 #This line is made as an alert to say we haven't updated the database; and that we were not able to get the dateTime x-axis working
 
 $myStrDate= substr($strDate,1);
 $strTemperature = substr($strTemp,1);
 $strHumid = substr($strHum,1);
-#These lines take the "," in the beginning of each large string and removing it
+
+# These lines take the first character in the beginning of each large string and removes it
 
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"> </script>
 
 <meta charset="utf-8">
 <title> </title>
@@ -123,10 +124,12 @@ series: [
 {
 name: "Temperature (C)",
 data: [<?php echo $strTemperature; ?>]
+//inputting the temperature string into one line data
 },
 {
 name: "Humidity (%)",
 data: [<?php echo $strHumid; ?>]
+//inputting the humidity string into the other line
 }
 ],
 chart: {
@@ -167,6 +170,7 @@ size: 1
 },
 xaxis: {
 categories:[],
+//We left the catergories array empty because the graph wouldn't work if we tried inputting the dateTime string and attempted to tweak the datetime format below
 labels: {
 	datetimeUTC: true,
 	datetimeFormatter:{
